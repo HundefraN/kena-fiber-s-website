@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Sparkles } from 'lucide-react';
+import { OptimizedImage } from './OptimizedImage';
 
 /**
  * SVG logo placeholders for the "Trusted By" section with infinite marquee scroll.
@@ -105,7 +106,7 @@ export default function TrustedBy() {
                 {/* Logo Glass Card */}
                 <div className="glass-card w-36 sm:w-48 md:w-56 h-20 sm:h-24 md:h-28 rounded-xl sm:rounded-2xl border border-border/50 bg-surface-3/30 backdrop-blur-sm flex flex-col items-center justify-center p-3 sm:p-4 transition-all duration-500 group-hover:border-brand/40 group-hover:bg-surface-3/80 group-hover:shadow-[0_0_30px_rgba(0,139,155,0.1)]">
 
-                  <img
+                  <OptimizedImage
                     src={logo.src}
                     alt={logo.name}
                     className="w-full h-8 sm:h-12 object-contain filter grayscale opacity-50 transition-all duration-500 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105"

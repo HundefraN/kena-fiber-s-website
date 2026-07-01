@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ArrowRight, Shield, Clock, Award, ChevronDown, Sparkles, Zap } from 'lucide-react';
-import { motion, useInView, useScroll, useTransform } from 'motion/react';
+import { ArrowRight, Shield, Clock, Award, ChevronDown, Sparkles, Zap, Star } from 'lucide-react';
+import { motion, useInView, useScroll, useTransform, AnimatePresence } from 'motion/react';
+import { OptimizedImage } from './OptimizedImage';
 
 function AnimatedCounter({ target, suffix = '' }: { target: number; suffix?: string }) {
   const [count, setCount] = useState(0);
@@ -93,25 +94,25 @@ export default function Hero() {
   const heroImages = [
     {
       id: 'hero-1',
-      src: new URL(`../assets/product_images/image26.png`, import.meta.url).href,
+      src: new URL(`../assets/product_images/image26.jpg`, import.meta.url).href,
       alt: 'Architectural geometric planters',
       badge: 'Premium',
     },
     {
       id: 'hero-2',
-      src: new URL(`../assets/product_images/image22.png`, import.meta.url).href,
+      src: new URL(`../assets/product_images/image22.jpg`, import.meta.url).href,
       alt: 'Premium fiberglass fabrication',
       badge: 'Bespoke',
     },
     {
       id: 'hero-3',
-      src: new URL(`../assets/product_images/image20.png`, import.meta.url).href,
+      src: new URL(`../assets/product_images/image20.jpg`, import.meta.url).href,
       alt: 'Custom branded commercial pots',
       badge: 'Custom',
     },
     {
       id: 'hero-4',
-      src: new URL(`../assets/product_images/image15.png`, import.meta.url).href,
+      src: new URL(`../assets/product_images/image15.jpg`, import.meta.url).href,
       alt: 'High-end sculptural planter designs',
       badge: 'Sculptural',
     },
@@ -286,7 +287,7 @@ export default function Hero() {
             <div className="flex items-center gap-2">
               <div className="flex -space-x-3">
                 {clientLogos.map((src, i) => (
-                  <img
+                  <OptimizedImage
                     key={i}
                     src={src}
                     alt={`Trusted Client ${i + 1}`}
@@ -344,10 +345,10 @@ export default function Hero() {
                 {img.badge}
               </motion.div>
 
-              <img
+              <OptimizedImage
+                priority
                 src={img.src}
                 alt={img.alt}
-                referrerPolicy="no-referrer"
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-115 transition-transform duration-1200"
               />
 

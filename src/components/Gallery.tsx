@@ -2,6 +2,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { X, ZoomIn, ShoppingCart, Check, ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useApp } from '../context/AppContext';
+import { OptimizedImage } from './OptimizedImage';
 
 // Contextually relevant planter categories
 type Category = 'all' | 'custom-branded' | 'geometric-minimalist' | 'sculptural-textured';
@@ -15,7 +16,7 @@ interface Project {
 }
 
 const productImagePath = (n: number) =>
-  new URL(`../assets/product_images/image${n}.png`, import.meta.url).href;
+  new URL(`../assets/product_images/image${n}.jpg`, import.meta.url).href;
 
 const categories: Category[] = ['custom-branded', 'geometric-minimalist', 'sculptural-textured'];
 
@@ -360,10 +361,9 @@ export default function Gallery() {
                 <div className="absolute bottom-0 right-0 w-8 h-8 border-r border-b border-brand/0 group-hover:border-brand/30 rounded-br-2xl transition-all duration-500 pointer-events-none z-20" />
 
                 <div className="relative aspect-[4/3] overflow-hidden">
-                  <img
+                  <OptimizedImage
                     src={project.image}
                     alt={project.title}
-                    loading="lazy"
                     className="absolute inset-0 w-full h-full object-cover group-hover:scale-108 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-surface-2 via-transparent to-transparent opacity-60" />
@@ -513,10 +513,10 @@ export default function Gallery() {
 
               {/* Image Segment */}
               <div className="w-full md:w-3/5 bg-black/10 flex items-center justify-center relative min-h-[220px] sm:min-h-[300px] md:min-h-[450px] max-h-[35vh] md:max-h-none overflow-hidden">
-                <img
+                <OptimizedImage
                   src={lightbox.image}
                   alt={lightbox.title}
-                  className="w-full h-full object-contain p-4 md:p-6"
+                  className="w-full h-auto object-cover"
                 />
               </div>
 

@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { X, Minus, Plus, Trash2, Send, ShoppingBag, CheckCircle, AlertCircle, Sparkles, User } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { OptimizedImage } from './OptimizedImage';
 import { useApp } from '../context/AppContext';
 
 // ── Telegram Bot API credentials ──
@@ -184,7 +185,7 @@ export default function Cart() {
 
                         {/* Thumbnail */}
                         <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl overflow-hidden flex-shrink-0 border border-border/80 relative z-10">
-                          <img
+                          <OptimizedImage
                             src={item.project.image}
                             alt={item.project.title}
                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"

@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowRight, ArrowUp, Zap, Sparkles } from 'lucide-react';
 import { motion } from 'motion/react';
 import logoSrc from '../assets/logo.png';
+import { OptimizedImage } from './OptimizedImage';
 
 // --- Premium UI Sub-Components --- //
 function FloatingParticle({ delay, x, y, size }: { delay: number; x: number; y: number; size: number }) {
@@ -84,7 +85,7 @@ export default function Footer() {
               className="w-10 h-10 flex items-center justify-center relative transition-all duration-500 group-hover:drop-shadow-[0_0_15px_rgba(0,139,155,0.6)]"
             >
               <div className="absolute inset-0 bg-brand/10 rounded-xl blur-md group-hover:bg-brand/30 transition-colors duration-500" />
-              <img src={logoSrc} alt="Kena Fiber Logo" className="w-full h-full object-contain relative z-10" />
+              <OptimizedImage src={logoSrc} alt="Kena Fiber Logo" className="w-full h-full object-contain relative z-10" />
             </motion.div>
             <div className="flex flex-col leading-none">
               <span className="font-display font-black text-xl text-text-primary tracking-wider group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-brand group-hover:to-accent-blue transition-all duration-300">

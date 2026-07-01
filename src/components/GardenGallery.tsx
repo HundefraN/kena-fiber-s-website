@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { X, ZoomIn, Leaf, Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { OptimizedImage } from './OptimizedImage';
 
 // Garden images
 const gardenImages = [
@@ -181,11 +182,10 @@ export default function GardenGallery() {
                 }`}
               >
                 {/* Image */}
-                <img
+                <OptimizedImage
                   src={img.src}
                   alt={img.title}
-                  loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
 
                 {/* Gradient overlays */}
@@ -312,10 +312,10 @@ export default function GardenGallery() {
               onClick={(e) => e.stopPropagation()}
             >
               <div className="relative w-full overflow-hidden rounded-2xl sm:rounded-3xl border border-white/10">
-                <img
+                <OptimizedImage
                   src={lightbox.src}
                   alt={lightbox.title}
-                  className="w-full max-h-[70vh] object-contain bg-black/30"
+                  className="w-full h-full object-contain p-4 sm:p-6 md:p-8"
                 />
 
                 {/* Image info overlay at bottom */}

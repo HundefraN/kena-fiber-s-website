@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Star, Quote, Sparkles } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { OptimizedImage } from './OptimizedImage';
 
 // Import your local assets
 import pp1 from '../assets/testimonial_images/pp1.png';
@@ -63,7 +64,7 @@ export default function Testimonials() {
                       <p className="text-sm text-text-secondary italic mb-6 leading-relaxed">"{t.feedback}"</p>
 
                       <div className="flex items-center gap-3 pt-4 border-t border-border/30">
-                        <img src={t.avatar} alt={t.name} className="w-10 h-10 rounded-full object-cover" />
+                        <OptimizedImage src={t.avatar} alt={t.name} className="w-10 h-10 rounded-full object-cover" />
                         <div>
                           <h4 className="text-xs font-bold text-text-primary">{t.name}</h4>
                           <p className="text-[9px] text-text-muted font-mono uppercase">{t.company}</p>
