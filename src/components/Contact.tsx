@@ -62,12 +62,29 @@ export default function Contact() {
   };
 
   const contactInfo = [
-    { icon: MapPin, label: 'Visit Us', value: 'Bishoftu, Oromia, Ethiopia', color: 'text-brand' },
-    { icon: Phone, label: 'Call Us', value: '+251 945 828 734', color: 'text-accent-amber' },
-    { icon: Mail, label: 'Email Us', value: 'Jemsnati182@gmail.com', color: 'text-accent-emerald' },
+    {
+      icon: MapPin,
+      label: 'Visit Us',
+      value: 'Bishoftu, Oromia, Ethiopia',
+      color: 'text-brand',
+      href: 'https://maps.google.com/?q=Bishoftu,Oromia,Ethiopia'
+    },
+    {
+      icon: Phone,
+      label: 'Call Us',
+      value: '+251 945 828 734',
+      color: 'text-accent-amber',
+      href: 'tel:+251945828734'
+    },
+    {
+      icon: Mail,
+      label: 'Email Us',
+      value: 'Jemsnati182@gmail.com',
+      color: 'text-accent-emerald',
+      href: 'mailto:Jemsnati182@gmail.com'
+    },
   ];
 
-  // Generate random particles for the background
   const particles = Array.from({ length: 20 }, (_, i) => ({
     id: i, delay: Math.random() * 5, x: Math.random() * 100, y: Math.random() * 100, size: 2 + Math.random() * 4,
   }));
@@ -79,20 +96,19 @@ export default function Contact() {
   return (
     <section id="contact" className="relative py-16 lg:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden bg-surface">
 
-      {/* 1. Ambient Glow Background */}
+      {/* Ambient Glow Background */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 -left-10 w-[500px] h-[500px] bg-brand/10 rounded-full blur-[120px] animate-pulse-slow" />
         <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-accent-blue/5 rounded-full blur-[150px] animate-pulse-slow" style={{ animationDelay: '2s' }} />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-brand/5 rounded-full blur-[100px] animate-pulse-slow" style={{ animationDelay: '4s' }} />
 
-        {/* Particles */}
         {particles.map((p) => <FloatingParticle key={`p-${p.id}`} {...p} />)}
         {glowingOrbs.map((orb) => <GlowingOrb key={`o-${orb.id}`} {...orb} />)}
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
 
-        {/* 2. Header Block with Gradient Typography */}
+        {/* Header Block */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -128,13 +144,11 @@ export default function Contact() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7 flex flex-col justify-between space-y-8"
           >
-            {/* 3. Glassmorphism Form */}
+            {/* Form */}
             <form onSubmit={handleSubmit} className="relative p-4 sm:p-8 rounded-2xl sm:rounded-3xl space-y-4 sm:space-y-6 bg-surface-2/40 backdrop-blur-md border border-border/50 shadow-[0_8px_32px_rgba(0,0,0,0.4)] group overflow-hidden">
 
-              {/* Subtle inner hover glow on the form card */}
               <div className="absolute inset-0 bg-gradient-to-br from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
-              {/* Name Field */}
               <div className="space-y-2 relative z-10">
                 <label className="block text-[11px] font-mono font-bold text-text-muted uppercase tracking-wider">
                   Full Name
@@ -150,7 +164,6 @@ export default function Contact() {
                 </div>
               </div>
 
-              {/* Email Field */}
               <div className="space-y-2 relative z-10">
                 <label className="block text-[11px] font-mono font-bold text-text-muted uppercase tracking-wider">
                   Email Address
@@ -166,7 +179,6 @@ export default function Contact() {
                 </div>
               </div>
 
-              {/* Details Field */}
               <div className="space-y-2 relative z-10">
                 <label className="block text-[11px] font-mono font-bold text-text-muted uppercase tracking-wider">
                   Project Details
@@ -182,14 +194,12 @@ export default function Contact() {
                 </div>
               </div>
 
-              {/* 4. Advanced Button Layout */}
               <div className="pt-2 relative z-10">
                 <div className="relative rounded-2xl bg-gradient-to-r from-brand via-accent-blue to-brand p-[1px] overflow-hidden group/btn">
                   <button
                     type="submit"
                     className="relative w-full px-6 sm:px-8 py-3 sm:py-4 bg-surface hover:bg-brand text-text-primary hover:text-surface font-bold rounded-2xl shadow-[0_0_20px_rgba(0,139,155,0.1)] hover:shadow-[0_0_40px_rgba(0,139,155,0.4)] transition-all duration-500 cursor-pointer flex items-center justify-center gap-2.5 text-xs sm:text-sm z-10 overflow-hidden"
                   >
-                    {/* Animated inner hover gradient */}
                     <motion.div
                       className="absolute inset-0 bg-gradient-to-r from-accent-blue to-brand opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300 -z-10"
                       animate={{ x: [-100, 100] }}
@@ -216,15 +226,21 @@ export default function Contact() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {contactInfo.map((item, idx) => {
                 const Icon = item.icon;
+
+                // FIX: Comment moved outside of the return statement
+                // Changed from motion.div to motion.a to support the href properly
                 return (
-                  <motion.div
+                  <motion.a
                     key={item.label}
+                    href={item.href}
+                    target={item.label === 'Visit Us' ? "_blank" : undefined}
+                    rel={item.label === 'Visit Us' ? "noopener noreferrer" : undefined}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.4 + (idx * 0.15), duration: 0.5 }}
                     whileHover={{ y: -5 }}
-                    className="p-5 rounded-2xl flex flex-col gap-3 bg-surface-2/30 backdrop-blur-sm border border-border/50 hover:border-brand/30 hover:shadow-[0_0_30px_rgba(0,139,155,0.05)] transition-all duration-300 group"
+                    className="p-5 rounded-2xl flex flex-col gap-3 bg-surface-2/30 backdrop-blur-sm border border-border/50 hover:border-brand/30 hover:shadow-[0_0_30px_rgba(0,139,155,0.05)] transition-all duration-300 group cursor-pointer"
                   >
                     <div className="w-10 h-10 rounded-xl bg-surface-3 flex items-center justify-center shrink-0 border border-border/50 group-hover:border-brand/30 transition-colors duration-300">
                       <Icon className={`w-4 h-4 ${item.color}`} />
@@ -237,13 +253,13 @@ export default function Contact() {
                         {item.value}
                       </span>
                     </div>
-                  </motion.div>
+                  </motion.a>
                 );
               })}
             </div>
           </motion.div>
 
-          {/* Right Column: 5. Map with Corner Accents & Hover State */}
+          {/* Right Column: Map */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -251,22 +267,18 @@ export default function Contact() {
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-5 h-[300px] sm:h-[450px] lg:h-full min-h-[300px] sm:min-h-[400px] lg:min-h-[500px] relative rounded-3xl p-1 bg-surface-2/40 border border-border/50 group"
           >
-            {/* Animated Glow behind the map */}
             <div className="absolute inset-0 bg-gradient-to-b from-brand/20 to-transparent opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-700" />
 
             <div className="relative w-full h-full rounded-[1.3rem] overflow-hidden bg-surface z-10 border border-surface-3">
-              {/* Premium Corner Accents */}
               <div className="absolute top-0 left-0 w-12 h-12 border-l-2 border-t-2 border-brand/50 rounded-tl-[1.3rem] z-20 pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="absolute bottom-0 right-0 w-12 h-12 border-r-2 border-b-2 border-brand/50 rounded-br-[1.3rem] z-20 pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
 
-              {/* Hover Overlay Message */}
               <div className="absolute inset-0 bg-surface/40 backdrop-blur-[2px] z-10 flex items-center justify-center opacity-100 group-hover:opacity-0 transition-opacity duration-500 pointer-events-none">
                 <span className="px-4 py-2 bg-surface-2/80 rounded-full text-xs font-mono font-bold text-text-primary border border-border flex items-center gap-2">
                   <MapPin className="w-3 h-3 text-brand" /> Interactive Map
                 </span>
               </div>
 
-              {/* Embedded Map */}
               <iframe
                 title="Location"
                 src="https://maps.google.com/maps?q=8.787063,38.936875&output=embed"
@@ -281,7 +293,6 @@ export default function Contact() {
         </div>
       </div>
 
-      {/* Decorative Bottom Line */}
       <motion.div
         initial={{ scaleX: 0, opacity: 0 }}
         whileInView={{ scaleX: 1, opacity: 1 }}

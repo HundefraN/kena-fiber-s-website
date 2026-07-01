@@ -37,6 +37,12 @@
   /* ── Accent: Emerald (kept for status/success) ── */
   --color-accent-emerald: #0DA678;
 
+  /* ── Accent: Botanical Green — for Plant Nursery sections ── */
+  --color-accent-green: #22C55E;
+  --color-accent-green-dark: #16A34A;
+  --color-accent-green-light: rgba(34, 197, 94, 0.10);
+  --color-accent-green-glow: rgba(34, 197, 94, 0.20);
+
   /* ── Accent: Metallic Slate — from the logo woven texture blocks ── */
   --color-accent-slate: #64748b;
   --color-accent-slate-light: rgba(100, 116, 139, 0.12);

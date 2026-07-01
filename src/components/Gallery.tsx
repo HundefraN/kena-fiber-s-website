@@ -38,7 +38,7 @@ const productNames: string[] = [
   'Metallic Gold Fluted Fiberglass Accent Pot',
   'Two-Tone Gold-Band Forest Green Fiberglass Planter',
   'White Branch-Texture Cylinder Fiberglass Planter',
-  'White Branch-Texture Cylinder Fiberglass Planter',
+  'Organic Modern White Fiberglass Planter Set',
   'Mixed Modern Fiberglass Planter Trio',
   'Contemporary Minimalist Fiberglass Planter Assortment',
   'Custom Global Bank Ethiopia Branded Fiberglass Planters',
@@ -53,6 +53,9 @@ const productNames: string[] = [
   'Architectural Indoor Plant and Succulent Collection',
   'Minimalist Monochromatic Rectangular and Cylinder Set',
   'Large Sculptural Organic Minimalist Planters',
+  'Metallic Gold Spherical Accent Planters',
+  'Modern White Architectural Cylinder Planter Set',
+  'Contemporary Fluted and Geometric Planter Ensemble',
 ];
 
 const productDescriptions: string[] = [
@@ -67,7 +70,7 @@ const productDescriptions: string[] = [
   'Premium metallic-finished fluted planter featuring an ultra-durable gel coat. Designed to elevate reception desks, executive suites, and luxury tabletop displays.',
   'Elegant multi-textured planter duo crafted with automotive-grade pigmented finishes, providing a durable and lasting focal point for upscale interiors.',
   'Custom-molded textured cylinder planter combining organic branch patterns with structural fiberglass durability, ideal for boutique retail and hospitality projects.',
-  'Custom-molded textured cylinder planter combining organic branch patterns with structural fiberglass durability, ideal for boutique retail and hospitality projects.',
+  'Ovoid fiberglass planters designed to provide a minimalist, architectural accent for upscale gardens, patios, and modern exterior landscapes.',
   'An elite multi-shape planter set designed for architectural staging, featuring a scratch-resistant finish and structural reinforcement for versatile cluster layouts.',
   'A curated professional bundle of high-durability minimalist planters, engineered to offer uniform aesthetic consistency across large-scale developments.',
   'Custom corporate-branded planters featuring precise logo application and structural fiberglass construction, designed for high-visibility corporate placements.',
@@ -81,7 +84,10 @@ const productDescriptions: string[] = [
   'Architectural planter system featuring modular bases and interlocking geometric profiles, ideal for modern art hotels and premium commercial lobbies.',
   'Premium selection of commercial interior planters engineered with high strength-to-weight ratios for easy transport and plant-scaping reconfiguration.',
   'Commercial rectangular and cylindrical staging planter set built with reinforced corners and structural joints for ultimate industrial durability.',
-  'Large-format sculptural white planters crafted using hand lay-up laminate techniques to deliver unmatched structural durability in luxury entryways.'
+  'Large-format sculptural white planters crafted using hand lay-up laminate techniques to deliver unmatched structural durability in luxury entryways.',
+  'A pair of premium metallic-finished spherical planters, designed to elevate reception areas, executive suites, or sophisticated home interiors with their high-gloss, ultra-durable finish.',
+  'An architectural-grade white planter collection featuring sleek, minimalist profiles, reinforced structures, and optimal drainage paths, perfectly suited for large-scale corporate interiors and public spaces.',
+  'A curated assembly of high-durability fiberglass planters, showcasing a striking gold geometric pot alongside elegant white fluted cylinders, engineered for versatile and stylish commercial staging.',
 ];
 
 const productCategories: Exclude<Category, 'all'>[] = [
@@ -92,9 +98,10 @@ const productCategories: Exclude<Category, 'all'>[] = [
   'sculptural-textured', 'geometric-minimalist', 'geometric-minimalist', 'geometric-minimalist',
   'sculptural-textured', 'geometric-minimalist', 'geometric-minimalist', 'geometric-minimalist',
   'geometric-minimalist', 'sculptural-textured',
+  'sculptural-textured', 'geometric-minimalist', 'sculptural-textured'
 ];
 
-const projects: Project[] = Array.from({ length: 26 }, (_, i) => ({
+const projects: Project[] = Array.from({ length: 29 }, (_, i) => ({
   id: `p${i + 1}`,
   title: productNames[i],
   category: productCategories[i],

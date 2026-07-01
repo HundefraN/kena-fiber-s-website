@@ -231,7 +231,7 @@ export default function Hero() {
             >
               <div className="absolute -left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-brand via-accent-blue to-transparent rounded-full" />
               <p className="font-sans text-sm sm:text-base md:text-lg text-text-secondary font-medium leading-relaxed max-w-lg md:max-w-2xl lg:max-w-lg pl-0">
-                High-performance commercial fiberglass planters built with precision. From bespoke branded corporate containers to sleek architectural pots — we deliver durability and modern design.
+                High-performance commercial fiberglass planters built with precision. From bespoke branded corporate containers to sleek architectural pots — paired with a thriving plant nursery to bring your spaces to life.
               </p>
             </motion.div>
           </motion.div>

@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { Layers, Anchor, Building2, ArrowRight, Sparkles, X, Factory } from 'lucide-react';
+import { Layers, Anchor, Building2, ArrowRight, Sparkles, X, Factory, Leaf } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 const services = [
@@ -38,6 +38,18 @@ const services = [
     title: 'Architectural Fiberglass',
     description: 'Lightweight, durable architectural panels, cornices, and decorative elements. Transform building facades with custom fiberglass solutions.',
     features: ['Facade cladding panels', 'Decorative cornices & columns', 'Dome & canopy shells', 'UV-stable gel coats'],
+  },
+  {
+    id: 'plant-nursery',
+    icon: Leaf,
+    gradient: 'from-accent-green/10 via-accent-green/5 to-transparent',
+    hoverGradient: 'group-hover:from-accent-green/20 group-hover:via-accent-green/10',
+    iconBg: 'bg-accent-green/10 border-accent-green/20 text-accent-green',
+    glowColor: 'group-hover:shadow-[0_0_40px_rgba(34,197,94,0.15)]',
+    cornerColor: 'group-hover:border-accent-green/40',
+    title: 'Plant Nursery & Garden',
+    description: 'Thriving ornamental plants, exotic tropicals, and flowering varieties grown with care to perfectly complement our premium fiberglass planters.',
+    features: ['Ornamental & flowering plants', 'Indoor & outdoor varieties', 'Tropical & decorative foliage', 'Bulk orders for landscaping'],
   },
 ];
 
@@ -135,12 +147,12 @@ export default function Services() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="font-sans text-sm sm:text-base text-text-secondary mt-3 sm:mt-4 max-w-2xl mx-auto leading-relaxed"
           >
-            10+ of expertise distilled into world-class fiberglass fabrication services for marine, industrial, and architectural applications.
+            10+ years of expertise distilled into world-class fiberglass fabrication and a thriving plant nursery for marine, industrial, architectural, and landscaping applications.
           </motion.p>
         </div>
 
         {/* 3D Perspective Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 perspective">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 perspective">
           {services.map((service, idx) => {
             const Icon = service.icon;
             return (

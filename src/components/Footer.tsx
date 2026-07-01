@@ -97,7 +97,7 @@ export default function Footer() {
           </div>
 
           <p className="font-sans text-sm text-text-muted leading-relaxed max-w-sm">
-            Ethiopia's premier fiberglass fabrication company, delivering high-quality, ultra-durable commercial molds built with absolute precision.
+            Ethiopia's premier fiberglass fabrication company and plant nursery, delivering high-quality commercial molds and flourishing greenery.
           </p>
 
           <button
@@ -123,6 +123,7 @@ export default function Footer() {
               { name: 'Home', id: 'home' },
               { name: 'Services', id: 'services' },
               { name: 'Gallery', id: 'gallery' },
+              { name: 'Garden', id: 'garden' },
               { name: 'Contact', id: 'contact' },
             ].map((item) => (
               <a
@@ -193,9 +194,23 @@ export default function Footer() {
         transition={{ delay: 0.8, duration: 1 }}
         className="max-w-7xl mx-auto mt-20 pt-6 border-t border-border/50 relative z-10 flex flex-col md:flex-row items-center justify-between gap-4"
       >
-        <span className="font-mono text-[10px] text-text-faint font-bold uppercase tracking-wider block text-center md:text-left">
-          © {new Date().getFullYear()} Kena Fiber. All rights reserved.
-        </span>
+        <div className="flex flex-col md:flex-row items-center gap-2 md:gap-3 text-center md:text-left">
+          <span className="font-mono text-[10px] text-text-faint font-bold uppercase tracking-wider block">
+            © {new Date().getFullYear()} Kena Fiber. All rights reserved.
+          </span>
+          <span className="hidden md:inline text-border font-mono text-[10px]">|</span>
+          <a
+            href="https://hundefran.github.io/Eben-Dev-solutions/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-mono text-[10px] text-text-muted font-bold uppercase tracking-wider hover:text-text-primary transition-colors group flex items-center gap-1"
+          >
+            Powered by
+            <span className="text-brand group-hover:text-accent-blue transition-colors">
+              Eben Dev Solutions
+            </span>
+          </a>
+        </div>
 
         <div className="flex items-center gap-2">
           <div className="w-1.5 h-1.5 rounded-full bg-accent-emerald animate-pulse" />
