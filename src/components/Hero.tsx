@@ -94,34 +94,34 @@ export default function Hero() {
   const heroImages = [
     {
       id: 'hero-1',
-      src: new URL(`../assets/product_images/image26.jpg`, import.meta.url).href,
+      src: 'https://res.cloudinary.com/dqosuzul4/image/upload/v1782974056/image26_xov9kz.jpg',
       alt: 'Architectural geometric planters',
       badge: 'Premium',
     },
     {
       id: 'hero-2',
-      src: new URL(`../assets/product_images/image22.jpg`, import.meta.url).href,
+      src: 'https://res.cloudinary.com/dqosuzul4/image/upload/v1782974056/image22_lqz8vv.jpg',
       alt: 'Premium fiberglass fabrication',
       badge: 'Bespoke',
     },
     {
       id: 'hero-3',
-      src: new URL(`../assets/product_images/image20.jpg`, import.meta.url).href,
+      src: 'https://res.cloudinary.com/dqosuzul4/image/upload/v1782974055/image20_gydcgs.jpg',
       alt: 'Custom branded commercial pots',
       badge: 'Custom',
     },
     {
       id: 'hero-4',
-      src: new URL(`../assets/product_images/image15.jpg`, import.meta.url).href,
+      src: 'https://res.cloudinary.com/dqosuzul4/image/upload/v1782974054/image15_ycqsdz.jpg',
       alt: 'High-end sculptural planter designs',
       badge: 'Sculptural',
     },
   ];
 
   const clientLogos = [
-    new URL(`../assets/trusted_by/Tsedey_Bank_logo.png`, import.meta.url).href,
-    new URL(`../assets/trusted_by/Global_Bank_Ethiopia.png`, import.meta.url).href,
-    new URL(`../assets/trusted_by/Ethiopian Economic Association.jpeg`, import.meta.url).href,
+    'https://res.cloudinary.com/dqosuzul4/image/upload/v1782975373/Tsedey_Bank_logo_uqkps7.png',
+    'https://res.cloudinary.com/dqosuzul4/image/upload/v1782975373/Global_Bank_Ethiopia_va2u38.png',
+    'https://res.cloudinary.com/dqosuzul4/image/upload/v1782975373/Ethiopian_Economic_Association_mtc25g.jpg',
   ];
 
   const stats = [
@@ -149,7 +149,6 @@ export default function Hero() {
     <section
       ref={containerRef}
       id="home"
-      // Adjusted padding: pb-20 on mobile ensures just enough space for the bottom widget without huge gaps
       className="relative min-h-screen flex flex-col justify-center px-4 sm:px-6 lg:px-16 pt-24 sm:pt-32 pb-20 sm:pb-24 overflow-hidden"
     >
       {/* Enhanced Background */}
@@ -277,40 +276,44 @@ export default function Hero() {
             </motion.button>
           </motion.div>
 
-          {/* Trust indicators */}
+          {/* Trust indicators - STRICTLY SIZED CONTAINERS FOR LOGOS */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.95 }}
-            className="flex items-center gap-6 pt-6 border-t border-border/50 w-full max-w-md"
+            className="flex flex-wrap items-center gap-4 sm:gap-6 pt-6 border-t border-border/50 w-full max-w-md"
           >
-            <div className="flex items-center gap-2">
-              <div className="flex -space-x-3">
+            <div className="flex items-center gap-3">
+              <div className="flex -space-x-2 sm:-space-x-3">
                 {clientLogos.map((src, i) => (
-                  <OptimizedImage
+                  <div
                     key={i}
-                    src={src}
-                    alt={`Trusted Client ${i + 1}`}
-                    className="w-8 h-8 rounded-full border-2 border-surface object-cover bg-white"
+                    className="w-7 h-7 sm:w-9 sm:h-9 rounded-full border-2 border-surface bg-white relative overflow-hidden flex items-center justify-center shrink-0 shadow-sm"
                     style={{ zIndex: 3 - i }}
-                  />
+                  >
+                    <OptimizedImage
+                      src={src}
+                      alt={`Trusted Client ${i + 1}`}
+                      className="absolute inset-0 w-full h-full object-contain p-1"
+                    />
+                  </div>
                 ))}
               </div>
-              <span className="text-xs sm:text-sm text-text-secondary font-medium ml-1">1000+ happy clients</span>
+              <span className="text-[11px] sm:text-sm text-text-secondary font-medium whitespace-nowrap">1000+ happy clients</span>
             </div>
-            <div className="h-4 sm:h-5 w-px bg-border" />
+            <div className="hidden sm:block h-5 w-px bg-border" />
             <div className="flex items-center gap-1">
               {[...Array(5)].map((_, i) => (
                 <motion.div
                   key={i}
                   animate={{ opacity: [0.5, 1] }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="text-brand text-xs sm:text-sm"
+                  className="text-brand text-[10px] sm:text-xs"
                 >
                   ★
                 </motion.div>
               ))}
-              <span className="text-xs sm:text-sm text-text-secondary font-medium ml-1 sm:ml-2">5.0 Rating</span>
+              <span className="text-[11px] sm:text-sm text-text-secondary font-medium ml-1 sm:ml-2">5.0 Rating</span>
             </div>
           </motion.div>
         </div>
@@ -382,7 +385,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Enhanced Stats Row - Removed the big bottom margin, just kept the top margin */}
+      {/* Enhanced Stats Row */}
       <div className="max-w-7xl mx-auto mt-10 sm:mt-20 md:mt-24 grid grid-cols-3 gap-2 sm:gap-4 md:gap-6 relative z-10 w-full">
         {stats.map((stat, idx) => {
           const Icon = stat.icon;
@@ -415,7 +418,7 @@ export default function Hero() {
         })}
       </div>
 
-      {/* Enhanced Scroll indicator - Slightly adjusted bottom positioning */}
+      {/* Enhanced Scroll indicator */}
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}

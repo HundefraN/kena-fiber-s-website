@@ -3,45 +3,26 @@ import { motion } from 'motion/react';
 import { Sparkles } from 'lucide-react';
 import { OptimizedImage } from './OptimizedImage';
 
-/**
- * SVG logo placeholders for the "Trusted By" section with infinite marquee scroll.
- */
 const logos = [
   {
     id: 'logo-1',
     name: 'Ethiopian Economic Association',
-    src: new URL('../assets/trusted_by/Ethiopian Economic Association.jpeg', import.meta.url).href,
+    src: 'https://res.cloudinary.com/dqosuzul4/image/upload/v1782975373/Ethiopian_Economic_Association_mtc25g.jpg',
   },
   {
     id: 'logo-2',
     name: 'Global Bank Ethiopia',
-    src: new URL('../assets/trusted_by/Global_Bank_Ethiopia.png', import.meta.url).href,
+    src: 'https://res.cloudinary.com/dqosuzul4/image/upload/v1782975373/Global_Bank_Ethiopia_va2u38.png',
   },
   {
     id: 'logo-3',
     name: 'Tsedey Bank',
-    src: new URL('../assets/trusted_by/Tsedey_Bank_logo.png', import.meta.url).href,
+    src: 'https://res.cloudinary.com/dqosuzul4/image/upload/v1782975373/Tsedey_Bank_logo_uqkps7.png',
   },
-  // {
-  //   id: 'logo-4',
-  //   name: 'Ministry of Construction',
-  //   src: new URL('../assets/trusted_by/ministry_of_construction.png', import.meta.url).href,
-  // },
-  // {
-  //   id: 'logo-5',
-  //   name: 'MIDROC Group',
-  //   src: new URL('../assets/trusted_by/midroc_group.png', import.meta.url).href,
-  // },
-  // {
-  //   id: 'logo-6',
-  //   name: 'Rift Valley Resorts',
-  //   src: new URL('../assets/trusted_by/rift_valley_resorts.png', import.meta.url).href,
-  // },
 ];
 
 export default function TrustedBy() {
   // Quadruple the logos to ensure the marquee fills even ultrawide screens smoothly
-  // Animating to -50% width creates a perfect infinite loop
   const marqueeLogos = [...logos, ...logos, ...logos, ...logos];
 
   return (
@@ -64,16 +45,16 @@ export default function TrustedBy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="flex items-center gap-3 mb-14"
+          className="flex items-center gap-3 mb-10 sm:mb-14"
         >
-          <div className="w-12 h-px bg-gradient-to-r from-transparent to-brand/50" />
+          <div className="w-8 sm:w-12 h-px bg-gradient-to-r from-transparent to-brand/50" />
           <div className="flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-surface-3/50 border border-border backdrop-blur-md">
             <Sparkles className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-brand" />
             <span className="text-[10px] sm:text-xs uppercase tracking-widest font-mono font-bold text-text-muted">
               Trusted By Industry Leaders
             </span>
           </div>
-          <div className="w-12 h-px bg-gradient-to-l from-transparent to-brand/50" />
+          <div className="w-8 sm:w-12 h-px bg-gradient-to-l from-transparent to-brand/50" />
         </motion.div>
 
         {/* Infinite Marquee Container */}
@@ -83,8 +64,8 @@ export default function TrustedBy() {
           <div className="absolute top-1/2 -translate-y-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent z-0" />
 
           {/* Gradient fade edges for seamless entering/exiting */}
-          <div className="absolute left-0 top-0 bottom-0 w-32 md:w-64 bg-gradient-to-r from-surface-2 to-transparent z-20 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-32 md:w-64 bg-gradient-to-l from-surface-2 to-transparent z-20 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 md:w-64 bg-gradient-to-r from-surface-2 to-transparent z-20 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 md:w-64 bg-gradient-to-l from-surface-2 to-transparent z-20 pointer-events-none" />
 
           {/* Scrolling Track */}
           <motion.div
@@ -94,31 +75,32 @@ export default function TrustedBy() {
               ease: 'linear',
               repeat: Infinity,
             }}
-            className="flex w-max gap-4 sm:gap-6 md:gap-8 px-4 relative z-10 hover:[animation-play-state:paused]"
+            className="flex w-max gap-3 sm:gap-5 md:gap-6 px-4 relative z-10 hover:[animation-play-state:paused]"
           >
             {marqueeLogos.map((logo, idx) => (
               <motion.div
                 key={`${logo.id}-${idx}`}
-                whileHover={{ y: -5 }}
+                whileHover={{ y: -3 }}
                 className="group relative flex-shrink-0"
                 title={logo.name}
               >
-                {/* Logo Glass Card */}
-                <div className="glass-card w-36 sm:w-48 md:w-56 h-20 sm:h-24 md:h-28 rounded-xl sm:rounded-2xl border border-border/50 bg-surface-3/30 backdrop-blur-sm flex flex-col items-center justify-center p-3 sm:p-4 transition-all duration-500 group-hover:border-brand/40 group-hover:bg-surface-3/80 group-hover:shadow-[0_0_30px_rgba(0,139,155,0.1)]">
+                {/* Logo Glass Card - Reduced padding to hug the smaller images */}
+                <div className="glass-card px-4 sm:px-6 py-2.5 sm:py-3.5 rounded-lg sm:rounded-xl border border-border/50 bg-surface-3/30 backdrop-blur-sm flex flex-col items-center justify-center transition-all duration-500 group-hover:border-brand/40 group-hover:bg-surface-3/80 group-hover:shadow-[0_0_20px_rgba(0,139,155,0.15)]">
 
+                  {/* Significantly smaller image sizes: h-6 to h-8 (24px-32px tall) */}
                   <OptimizedImage
                     src={logo.src}
                     alt={logo.name}
-                    className="w-full h-8 sm:h-12 object-contain filter grayscale opacity-50 transition-all duration-500 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105"
+                    className="h-6 sm:h-8 w-auto max-w-[100px] sm:max-w-[140px] object-contain filter grayscale opacity-60 transition-all duration-500 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105"
                   />
 
                   {/* Internal Glow Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brand/5 opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-500 pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brand/10 opacity-0 group-hover:opacity-100 rounded-xl transition-opacity duration-500 pointer-events-none" />
                 </div>
 
                 {/* Hover Tooltip / Name */}
-                <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 pointer-events-none w-max">
-                  <span className="text-[10px] font-mono font-bold text-brand tracking-widest uppercase bg-surface-2 border border-brand/20 px-3 py-1 rounded-full shadow-[0_0_10px_rgba(0,139,155,0.2)]">
+                <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 pointer-events-none w-max z-30">
+                  <span className="text-[9px] sm:text-[10px] font-mono font-bold text-brand tracking-widest uppercase bg-surface-2 border border-brand/20 px-2.5 py-1 rounded-full shadow-[0_0_10px_rgba(0,139,155,0.2)]">
                     {logo.name}
                   </span>
                 </div>
