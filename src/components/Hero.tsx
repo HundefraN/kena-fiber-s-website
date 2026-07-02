@@ -91,28 +91,29 @@ export default function Hero() {
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
+  // Updated to the newly requested Cloudinary Links
   const heroImages = [
     {
       id: 'hero-1',
-      src: 'https://res.cloudinary.com/dqosuzul4/image/upload/v1782974056/image26_xov9kz.jpg',
+      src: 'https://res.cloudinary.com/dqosuzul4/image/upload/v1782974054/image16_cetnrv.jpg',
       alt: 'Architectural geometric planters',
       badge: 'Premium',
     },
     {
       id: 'hero-2',
-      src: 'https://res.cloudinary.com/dqosuzul4/image/upload/v1782974056/image22_lqz8vv.jpg',
+      src: 'https://res.cloudinary.com/dqosuzul4/image/upload/v1782974052/image2_nws2rg.jpg',
       alt: 'Premium fiberglass fabrication',
       badge: 'Bespoke',
     },
     {
       id: 'hero-3',
-      src: 'https://res.cloudinary.com/dqosuzul4/image/upload/v1782974055/image20_gydcgs.jpg',
+      src: 'https://res.cloudinary.com/dqosuzul4/image/upload/v1782974054/image15_ycqsdz.jpg',
       alt: 'Custom branded commercial pots',
       badge: 'Custom',
     },
     {
       id: 'hero-4',
-      src: 'https://res.cloudinary.com/dqosuzul4/image/upload/v1782974054/image15_ycqsdz.jpg',
+      src: 'https://res.cloudinary.com/dqosuzul4/image/upload/v1782974056/image22_lqz8vv.jpg',
       alt: 'High-end sculptural planter designs',
       badge: 'Sculptural',
     },
